@@ -15,11 +15,11 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   metadataBase: new URL("https://layvo.com.br"),
   title: {
-    default: "Layvo Gestão — Seu negócio na palma da mão",
+    default: "Layvo — Software e soluções digitais",
     template: "%s | Layvo",
   },
   description:
-    "Vendas, estoque, clientes e financeiro em um só lugar. Simples de usar, feito para pequenos negócios.",
+    "A Layvo cria softwares, produtos digitais e soluções sob medida para transformar desafios em negócios mais eficientes.",
   applicationName: "Layvo",
 };
 

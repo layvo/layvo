@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { SiteFooter, SiteHeader } from "@/components/site-shell";
 
 export default function Home() {
@@ -6,71 +7,95 @@ export default function Home() {
     <>
       <SiteHeader />
       <main>
-        <section className="hero">
-          <div className="orb orb-one" />
-          <div className="orb orb-two" />
-          <div className="container hero-grid">
-            <div className="hero-copy">
-              <span className="eyebrow"><i /> Gestão simples. Resultados reais.</span>
-              <h1>Seu negócio no controle. <span>Onde você estiver.</span></h1>
-              <p>Vendas, estoque, clientes e financeiro organizados em um só aplicativo. Feito para quem quer crescer sem complicação.</p>
+        <section className="company-hero">
+          <div className="company-grid" aria-hidden="true" />
+          <div className="company-glow glow-left" />
+          <div className="company-glow glow-right" />
+          <div className="container company-hero-inner">
+            <div className="company-copy">
+              <span className="eyebrow"><i /> Tecnologia que movimenta negócios</span>
+              <h1>Transformamos desafios em <span>soluções digitais.</span></h1>
+              <p>A Layvo cria softwares inteligentes, produtos digitais e soluções sob medida para tornar empresas mais simples, eficientes e preparadas para crescer.</p>
               <div className="hero-actions">
-                <a className="button primary" href="#recursos">Conheça o Layvo <b>→</b></a>
-                <a className="button ghost" href="mailto:contato@layvo.com.br">Fale com a gente</a>
-              </div>
-              <div className="trust-row">
-                <span>✓ Dados no seu aparelho</span>
-                <span>✓ Backup criptografado</span>
-                <span>✓ Feito no Brasil</span>
+                <a className="button primary" href="#solucoes">Conheça nossas soluções <b>→</b></a>
+                <a className="button ghost" href="mailto:contato@layvo.com.br?subject=Quero falar sobre um projeto">Fale sobre seu projeto</a>
               </div>
             </div>
-            <div className="hero-visual" aria-label="Aplicativo Layvo Gestão">
-              <div className="glow" />
-              <div className="phone">
-                <div className="phone-top"><span>9:41</span><i /></div>
-                <div className="app-head">
-                  <Image src="/layvo-icon.png" width={42} height={42} alt="" />
-                  <div><small>Boa tarde,</small><strong>Meu Negócio</strong></div>
-                </div>
-                <div className="balance"><small>Vendas este mês</small><strong>R$ 18.420,00</strong><em>↗ 12,4%</em></div>
-                <div className="mini-grid">
-                  <div><i className="blue">▥</i><small>Vendas</small><b>127</b></div>
-                  <div><i className="purple">◫</i><small>Produtos</small><b>342</b></div>
-                </div>
-                <div className="chart-card"><span>Desempenho</span><div className="bars">{[42,58,47,74,68,91,80].map((h, i) => <i key={i} style={{height: `${h}%`}} />)}</div></div>
-              </div>
-              <div className="float-card card-sale"><i>✓</i><span><small>Venda concluída</small><b>R$ 284,90</b></span></div>
-              <div className="float-card card-stock"><i>▤</i><span><small>Estoque organizado</small><b>342 produtos</b></span></div>
+            <div className="company-mark" aria-hidden="true">
+              <div className="mark-ring ring-one" />
+              <div className="mark-ring ring-two" />
+              <div className="mark-core"><Image src="/layvo-symbol.png" width={250} height={250} alt="" priority /></div>
+              <span className="tech-pill pill-one">Produtos digitais</span>
+              <span className="tech-pill pill-two">Sistemas inteligentes</span>
+              <span className="tech-pill pill-three">Soluções sob medida</span>
             </div>
           </div>
         </section>
 
-        <section className="section" id="recursos">
+        <section className="company-strip">
+          <div className="container strip-items">
+            <span>Estratégia</span><i />
+            <span>Design</span><i />
+            <span>Tecnologia</span><i />
+            <span>Evolução</span>
+          </div>
+        </section>
+
+        <section className="section company-solutions" id="solucoes">
           <div className="container">
-            <div className="section-heading">
-              <span className="eyebrow"><i /> Tudo que importa</span>
-              <h2>Menos planilhas. <span>Mais clareza.</span></h2>
-              <p>As ferramentas essenciais para cuidar do seu negócio, reunidas em uma experiência simples e direta.</p>
+            <div className="section-heading company-heading">
+              <span className="eyebrow"><i /> O que fazemos</span>
+              <h2>Tecnologia com propósito, <span>do conceito à escala.</span></h2>
+              <p>Unimos visão de negócio, experiência e engenharia para criar soluções que resolvem problemas reais.</p>
             </div>
-            <div className="features">
+            <div className="service-grid">
               {[
-                ["↗","Vendas descomplicadas","Registre vendas rapidamente e acompanhe o movimento do seu negócio."],
-                ["▦","Estoque sob controle","Saiba o que entra, o que sai e receba clareza sobre seus produtos."],
-                ["◎","Clientes por perto","Organize seus clientes, histórico de compras e crediário em um só lugar."],
-                ["◒","Financeiro organizado","Acompanhe caixa, contas a pagar e a receber sem se perder."],
-                ["▥","Relatórios que ajudam","Transforme seus números em decisões melhores para o dia a dia."],
-                ["◇","Backup seguro","Proteja seus dados com backups criptografados sob o seu controle."],
-              ].map(([icon,title,text]) => (
-                <article className="feature-card" key={title}><i>{icon}</i><h3>{title}</h3><p>{text}</p></article>
+                ["01","Produtos digitais","Criamos aplicativos e plataformas próprias, pensados para simplificar operações e gerar valor todos os dias."],
+                ["02","Software sob medida","Desenvolvemos sistemas alinhados aos processos, objetivos e ritmo de crescimento de cada negócio."],
+                ["03","Automação e integração","Conectamos ferramentas e automatizamos tarefas para reduzir trabalho manual e aumentar a eficiência."],
+              ].map(([number,title,text]) => (
+                <article className="service-card" key={number}>
+                  <span>{number}</span><div><h3>{title}</h3><p>{text}</p></div><i>↗</i>
+                </article>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="product-showcase" id="produtos">
+          <div className="container product-showcase-grid">
+            <div className="product-art">
+              <div className="product-aura" />
+              <Image src="/layvo-icon.png" width={280} height={280} alt="Ícone do Layvo Gestão" />
+              <span className="product-tag tag-top">Vendas + Estoque</span>
+              <span className="product-tag tag-bottom">Financeiro + Clientes</span>
+            </div>
+            <div className="product-copy">
+              <span className="eyebrow light-dark"><i /> Nosso primeiro produto</span>
+              <h2>Layvo Gestão</h2>
+              <h3>Seu negócio no controle. Onde você estiver.</h3>
+              <p>Uma solução simples e completa para pequenos negócios organizarem vendas, estoque, clientes e financeiro em um só lugar.</p>
+              <ul><li>Gestão simples e intuitiva</li><li>Dados sob o controle do usuário</li><li>Feito para a realidade brasileira</li></ul>
+              <Link className="button primary" href="/produtos/layvo-gestao">Conheça o Layvo Gestão <b>→</b></Link>
+            </div>
+          </div>
+        </section>
+
+        <section className="values-section">
+          <div className="container values-grid">
+            <div><span className="eyebrow"><i /> Como pensamos</span><h2>Software bom é aquele que melhora o dia a dia.</h2></div>
+            <div className="values-list">
+              <article><b>01</b><span><strong>Simples por natureza</strong><small>Complexidade fica nos bastidores. Para o usuário, tudo precisa ser claro.</small></span></article>
+              <article><b>02</b><span><strong>Construído para durar</strong><small>Tecnologia responsável, segura e preparada para evoluir junto com o negócio.</small></span></article>
+              <article><b>03</b><span><strong>Próximo de verdade</strong><small>Escutamos, entendemos e criamos soluções conectadas com necessidades reais.</small></span></article>
             </div>
           </div>
         </section>
 
         <section className="cta-section">
           <div className="container cta-card">
-            <div><span className="eyebrow light"><i /> Feito para pequenos negócios</span><h2>Seu próximo passo começa com organização.</h2><p>O Layvo está chegando para tornar sua gestão mais leve, segura e inteligente.</p></div>
-            <a className="button white" href="mailto:contato@layvo.com.br?subject=Quero conhecer o Layvo">Quero saber mais <b>→</b></a>
+            <div><span className="eyebrow light"><i /> Vamos construir juntos</span><h2>Tem uma ideia ou desafio que a tecnologia pode resolver?</h2><p>Conte para a Layvo. A próxima grande solução pode começar com uma conversa.</p></div>
+            <a className="button white" href="mailto:contato@layvo.com.br?subject=Quero conversar sobre uma solução">Vamos conversar <b>→</b></a>
           </div>
         </section>
       </main>
