@@ -1,66 +1,80 @@
 import Image from "next/image";
-import styles from "./page.module.css";
+import { SiteFooter, SiteHeader } from "@/components/site-shell";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <>
+      <SiteHeader />
+      <main>
+        <section className="hero">
+          <div className="orb orb-one" />
+          <div className="orb orb-two" />
+          <div className="container hero-grid">
+            <div className="hero-copy">
+              <span className="eyebrow"><i /> Gestão simples. Resultados reais.</span>
+              <h1>Seu negócio no controle. <span>Onde você estiver.</span></h1>
+              <p>Vendas, estoque, clientes e financeiro organizados em um só aplicativo. Feito para quem quer crescer sem complicação.</p>
+              <div className="hero-actions">
+                <a className="button primary" href="#recursos">Conheça o Layvo <b>→</b></a>
+                <a className="button ghost" href="mailto:contato@layvo.com.br">Fale com a gente</a>
+              </div>
+              <div className="trust-row">
+                <span>✓ Dados no seu aparelho</span>
+                <span>✓ Backup criptografado</span>
+                <span>✓ Feito no Brasil</span>
+              </div>
+            </div>
+            <div className="hero-visual" aria-label="Aplicativo Layvo Gestão">
+              <div className="glow" />
+              <div className="phone">
+                <div className="phone-top"><span>9:41</span><i /></div>
+                <div className="app-head">
+                  <Image src="/layvo-icon.png" width={42} height={42} alt="" />
+                  <div><small>Boa tarde,</small><strong>Meu Negócio</strong></div>
+                </div>
+                <div className="balance"><small>Vendas este mês</small><strong>R$ 18.420,00</strong><em>↗ 12,4%</em></div>
+                <div className="mini-grid">
+                  <div><i className="blue">▥</i><small>Vendas</small><b>127</b></div>
+                  <div><i className="purple">◫</i><small>Produtos</small><b>342</b></div>
+                </div>
+                <div className="chart-card"><span>Desempenho</span><div className="bars">{[42,58,47,74,68,91,80].map((h, i) => <i key={i} style={{height: `${h}%`}} />)}</div></div>
+              </div>
+              <div className="float-card card-sale"><i>✓</i><span><small>Venda concluída</small><b>R$ 284,90</b></span></div>
+              <div className="float-card card-stock"><i>▤</i><span><small>Estoque organizado</small><b>342 produtos</b></span></div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section" id="recursos">
+          <div className="container">
+            <div className="section-heading">
+              <span className="eyebrow"><i /> Tudo que importa</span>
+              <h2>Menos planilhas. <span>Mais clareza.</span></h2>
+              <p>As ferramentas essenciais para cuidar do seu negócio, reunidas em uma experiência simples e direta.</p>
+            </div>
+            <div className="features">
+              {[
+                ["↗","Vendas descomplicadas","Registre vendas rapidamente e acompanhe o movimento do seu negócio."],
+                ["▦","Estoque sob controle","Saiba o que entra, o que sai e receba clareza sobre seus produtos."],
+                ["◎","Clientes por perto","Organize seus clientes, histórico de compras e crediário em um só lugar."],
+                ["◒","Financeiro organizado","Acompanhe caixa, contas a pagar e a receber sem se perder."],
+                ["▥","Relatórios que ajudam","Transforme seus números em decisões melhores para o dia a dia."],
+                ["◇","Backup seguro","Proteja seus dados com backups criptografados sob o seu controle."],
+              ].map(([icon,title,text]) => (
+                <article className="feature-card" key={title}><i>{icon}</i><h3>{title}</h3><p>{text}</p></article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="cta-section">
+          <div className="container cta-card">
+            <div><span className="eyebrow light"><i /> Feito para pequenos negócios</span><h2>Seu próximo passo começa com organização.</h2><p>O Layvo está chegando para tornar sua gestão mais leve, segura e inteligente.</p></div>
+            <a className="button white" href="mailto:contato@layvo.com.br?subject=Quero conhecer o Layvo">Quero saber mais <b>→</b></a>
+          </div>
+        </section>
       </main>
-    </div>
+      <SiteFooter />
+    </>
   );
 }
